@@ -93,11 +93,11 @@ VpaidVideoPlayer.prototype.startAd = function() {
 
         // add skip button if skippable
         if (this.getAdSkippableState()) {
-            this._createAdButton('Outdoor', this.skipAd);
+            this._createAdButton('Skip', this.skipAd);
         }
 
-        this._createAdButton('Resume', this.resumeAd);
-        this._createAdButton('Pause', this.pauseAd);
+        this._createAdButton('Outdoor', this.resumeAd);
+        this._createAdButton('Family', this.pauseAd);
 
         this._callEvent('AdStarted');
         this._callEvent('AdImpression');
@@ -187,8 +187,9 @@ VpaidVideoPlayer.prototype.pauseAd = function() {
  * Resumes the ad.
  */
 VpaidVideoPlayer.prototype.resumeAd = function() {
-    this._videoSlot.play();
-    this._callEvent('AdResumed');
+    this._createAdButton('Outdoor', this.resumeAd);
+    // this._videoSlot.play();
+    // this._callEvent('AdResumed');
 };
 
 /**
