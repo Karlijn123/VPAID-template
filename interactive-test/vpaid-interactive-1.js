@@ -93,7 +93,7 @@ VpaidVideoPlayer.prototype.startAd = function() {
 
         // add skip button if skippable
         if (this.getAdSkippableState()) {
-            this._createAdButton('Skip', this.skipAd);
+            this._createAdButton('Outdoor', this.skipAd);
         }
 
         this._createAdButton('Resume', this.resumeAd);
