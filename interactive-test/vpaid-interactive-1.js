@@ -8,7 +8,7 @@ var VpaidVideoPlayer = function() {
 };
 
 VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode,
-                                             desiredBitrate, creativeData, environmentVars) {
+                                             desiredBitrate, creativeData, environmentVars, mimetype, url) {
 
     this._slot = environmentVars.slot;
     this._videoSlot = environmentVars.videoSlot;
@@ -16,8 +16,14 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode,
     // Parse the incoming parameters
     this._parameters = JSON.parse(creativeData['AdParameters']);
 
+    this._videos = this._parameters['videos'];
     this._attributes = this._parameters['attributes'];
 
+    var array = this._parameters['videos'];
+
+    
+    this._videos['mimetype'] = mimetype;
+    this._videos['url'] = url;
     this._attributes['width'] = width;
     this._attributes['height'] = height;
     this._attributes['viewMode'] = viewMode;
@@ -96,8 +102,9 @@ VpaidVideoPlayer.prototype.startAd = function() {
             this._createAdButton('Skip', this.skipAd);
         }
 
-        this._createAdButton('Outdoor', this.resumeAd);
-        this._createAdButton('Family', this.pauseAd);
+        this._createAdButton('Resume', this.resumeAd);
+        this._createAdButton('Pause', this.pauseAd);
+        this._createAdButton('Outdoor', this.changeAd);
 
         this._callEvent('AdStarted');
         this._callEvent('AdImpression');
@@ -176,6 +183,21 @@ VpaidVideoPlayer.prototype.resizeAd = function(width, height, viewMode) {
 };
 
 /**
+ * Changes the ad.
+ */
+VpaidVideoPlayer.prototype.changeAd = function() {
+    this._videos = this._parameters['videos'];
+    this._attributes = this._parameters['attributes'];
+
+    var array = this._parameters['videos'];
+    this._videoSlot.pause();
+    console.log(array[0]['url']);
+    console.log(array[1]['url']);
+
+    // return this._videos.url[1];
+};
+
+/**
  * Pauses the ad.
  */
 VpaidVideoPlayer.prototype.pauseAd = function() {
@@ -187,9 +209,8 @@ VpaidVideoPlayer.prototype.pauseAd = function() {
  * Resumes the ad.
  */
 VpaidVideoPlayer.prototype.resumeAd = function() {
-    this._createAdButton('Outdoor', this.resumeAd);
-    // this._videoSlot.play();
-    // this._callEvent('AdResumed');
+    this._videoSlot.play();
+    this._callEvent('AdResumed');
 };
 
 /**
