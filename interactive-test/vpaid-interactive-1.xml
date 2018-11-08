@@ -15,7 +15,7 @@
 						<Duration>00:00:15</Duration>
 						<AdParameters>
 							<![CDATA[
-							{"videos":[ {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_DynamischSport_Long_youtube.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_UrbanFamily_Long_Youtube.mp4","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
+							{"videos":[ {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_DynamischSport_Long_youtube.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_UrbanFamily_Long_Youtube.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_SingleOutdoor_Long_Youtube.mp4","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
 							]]>
 						</AdParameters>
 						<VideoClicks>

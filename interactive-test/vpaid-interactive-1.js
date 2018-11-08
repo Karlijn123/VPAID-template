@@ -103,7 +103,8 @@ VpaidVideoPlayer.prototype.startAd = function() {
 
         this._createAdButton('Resume', this.resumeAd);
         // this._createAdButton('Pause', this.pauseAd);
-        this._createAdButton('Outdoor', this.changeAd);
+        this._createAdButton('Family', this.changeAdF);
+        this._createAdButton('Outdoor', this.changeAdO)
 
         this._callEvent('AdStarted');
         this._callEvent('AdImpression');
@@ -184,14 +185,15 @@ VpaidVideoPlayer.prototype.resizeAd = function(width, height, viewMode) {
 /**
  * Changes the ad.
  */
-VpaidVideoPlayer.prototype.changeAd = function() {
+VpaidVideoPlayer.prototype.changeAdF = function() {
     this._videoSlot.pause();
 
     this._videos = this._parameters['videos'];
     this._attributes = this._parameters['attributes'];
     var array = this._parameters['videos'];
+
+    console.log(array);
     
-    console.log(array[0]['url']);
     console.log(array[1]['url']); 
 
     var foundSource = false;
@@ -203,7 +205,41 @@ VpaidVideoPlayer.prototype.changeAd = function() {
             // this._videoSlot.setAttribute('src', videos[i].url);
             foundSource = true;
             var getVPAIDAd = function() {
-                return new VpaidVideoPlayer();
+                VpaidVideoPlayer() = new VpaidVideoPlayer();
+
+            };
+            break;
+        }
+    }
+    if (!foundSource) {
+        // Unable to find a source video.
+        this._callEvent('AdError');
+    }
+};
+/**
+ * Changes the ad2.
+ */
+VpaidVideoPlayer.prototype.changeAdO = function() {
+    this._videoSlot.pause();
+
+    this._videos = this._parameters['videos'];
+    this._attributes = this._parameters['attributes'];
+    var array = this._parameters['videos'];
+    
+    console.log(array);
+    console.log(array[2]['url']);
+
+    var foundSource = false;
+    var videos = this._parameters.videos || [];
+    for (var i = 0; i < videos.length; i++) {
+        // Choose the first video with a supported mimetype.
+        if (this._videoSlot.canPlayType(videos[i].mimetype) != '') {
+            this._videoSlot.setAttribute('src', array[2]['url']);
+            // this._videoSlot.setAttribute('src', videos[i].url);
+            foundSource = true;
+            var getVPAIDAd = function() {
+                VpaidVideoPlayer() = new VpaidVideoPlayer();
+
             };
             break;
         }
