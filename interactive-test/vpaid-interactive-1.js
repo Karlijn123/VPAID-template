@@ -20,7 +20,6 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode,
     this._attributes = this._parameters['attributes'];
 
     var array = this._parameters['videos'];
-
     
     this._videos['mimetype'] = mimetype;
     this._videos['url'] = url;
@@ -103,7 +102,7 @@ VpaidVideoPlayer.prototype.startAd = function() {
         }
 
         this._createAdButton('Resume', this.resumeAd);
-        this._createAdButton('Pause', this.pauseAd);
+        // this._createAdButton('Pause', this.pauseAd);
         this._createAdButton('Outdoor', this.changeAd);
 
         this._callEvent('AdStarted');
@@ -186,15 +185,33 @@ VpaidVideoPlayer.prototype.resizeAd = function(width, height, viewMode) {
  * Changes the ad.
  */
 VpaidVideoPlayer.prototype.changeAd = function() {
+    this._videoSlot.pause();
+
     this._videos = this._parameters['videos'];
     this._attributes = this._parameters['attributes'];
-
     var array = this._parameters['videos'];
-    this._videoSlot.pause();
+    
     console.log(array[0]['url']);
-    console.log(array[1]['url']);
+    console.log(array[1]['url']); 
 
-    // return this._videos.url[1];
+    var foundSource = false;
+    var videos = this._parameters.videos || [];
+    for (var i = 0; i < videos.length; i++) {
+        // Choose the first video with a supported mimetype.
+        if (this._videoSlot.canPlayType(videos[i].mimetype) != '') {
+            this._videoSlot.setAttribute('src', array[1]['url']);
+            // this._videoSlot.setAttribute('src', videos[i].url);
+            foundSource = true;
+            var getVPAIDAd = function() {
+                return new VpaidVideoPlayer();
+            };
+            break;
+        }
+    }
+    if (!foundSource) {
+        // Unable to find a source video.
+        this._callEvent('AdError');
+    }
 };
 
 /**
