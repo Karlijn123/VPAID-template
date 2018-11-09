@@ -101,7 +101,7 @@ VpaidVideoPlayer.prototype.startAd = function() {
             this._createAdButton('Skip', this.skipAd);
         }
 
-        this._createAdButton('Resume', this.resumeAd);
+        // this._createAdButton('Resume', this.resumeAd);
         // this._createAdButton('Pause', this.pauseAd);
         this._createAdButton('Family', this.changeAdF);
         this._createAdButton('Outdoor', this.changeAdO)
@@ -191,8 +191,6 @@ VpaidVideoPlayer.prototype.changeAdF = function() {
     this._videos = this._parameters['videos'];
     this._attributes = this._parameters['attributes'];
     var array = this._parameters['videos'];
-
-    console.log(array);
     
     console.log(array[1]['url']); 
 
@@ -208,6 +206,8 @@ VpaidVideoPlayer.prototype.changeAdF = function() {
                 VpaidVideoPlayer() = new VpaidVideoPlayer();
 
             };
+            this._videoSlot.play();
+            this._callEvent('AdResumed');
             break;
         }
     }
@@ -225,8 +225,7 @@ VpaidVideoPlayer.prototype.changeAdO = function() {
     this._videos = this._parameters['videos'];
     this._attributes = this._parameters['attributes'];
     var array = this._parameters['videos'];
-    
-    console.log(array);
+
     console.log(array[2]['url']);
 
     var foundSource = false;
@@ -241,6 +240,8 @@ VpaidVideoPlayer.prototype.changeAdO = function() {
                 VpaidVideoPlayer() = new VpaidVideoPlayer();
 
             };
+            this._videoSlot.play();
+            this._callEvent('AdResumed');
             break;
         }
     }

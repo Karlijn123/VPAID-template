@@ -7,7 +7,7 @@
 
 			<Error>http://example.com/error</Error>
 
-			<Impression id="Impression-ID">http://example.com/track/impression</Impression>
+			<Impression id="Impression-ID"></Impression>
 			
 			<Creatives>
 				<Creative sequence="1">
