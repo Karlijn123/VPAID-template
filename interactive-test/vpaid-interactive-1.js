@@ -103,8 +103,10 @@ VpaidVideoPlayer.prototype.startAd = function() {
 
         // this._createAdButton('Resume', this.resumeAd);
         // this._createAdButton('Pause', this.pauseAd);
-        this._createAdButton('Family', this.changeAdF);
+
         this._createAdButton('Outdoor', this.changeAdO)
+        this._createAdButton('Family', this.changeAdF);
+        
 
         this._callEvent('AdStarted');
         this._callEvent('AdImpression');
@@ -114,9 +116,26 @@ VpaidVideoPlayer.prototype.startAd = function() {
 VpaidVideoPlayer.prototype._createAdButton = function(text, eventType) {
     var adButton = document.createElement('button');
     var buttonText = document.createTextNode(text);
+
+    adButton.style.width = "50vw";
+    adButton.style.height = "100vh";
+    adButton.style.opacity = "0";
+    adButton.style.backgroundColor = "black";
+
+    function adhover(button) {
+        button.onmouseover = function(e){
+            console.log(button);
+            button.style.opacity = "0.4";
+        }
+        button.onmouseout = function(e){
+            button.style.opacity = "0";
+        }
+    } 
+
     adButton.appendChild(buttonText);
     adButton.addEventListener('click', eventType.bind(this), false);
     preventEventBubbling(adButton);
+    adhover(adButton);
     var vpaidContainer = document.getElementById('vpaid-container');
     vpaidContainer.appendChild(adButton);
 
