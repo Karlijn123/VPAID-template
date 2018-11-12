@@ -124,7 +124,6 @@ VpaidVideoPlayer.prototype._createAdButton = function(text, eventType) {
 
     function adhover(button) {
         button.onmouseover = function(e){
-            console.log(button);
             button.style.opacity = "0.4";
         }
         button.onmouseout = function(e){
@@ -140,6 +139,14 @@ VpaidVideoPlayer.prototype._createAdButton = function(text, eventType) {
     vpaidContainer.appendChild(adButton);
 
 
+};
+
+VpaidVideoPlayer.prototype._deleteAdButton = function(deleteButton) {
+    // when button is clicked, delete the button elements
+    var vpaidContainer = document.getElementById('vpaid-container');
+   for (var i = 0; i < deleteButton.length; i = 0) {
+        vpaidContainer.removeChild(deleteButton[i]);
+    }
 };
 
 function preventEventBubbling(button) {
@@ -205,6 +212,8 @@ VpaidVideoPlayer.prototype.resizeAd = function(width, height, viewMode) {
  * Changes the ad.
  */
 VpaidVideoPlayer.prototype.changeAdF = function() {
+    // button video version 1 for changing the advertisement
+    var deleteButton = document.getElementsByTagName('button');
     this._videoSlot.pause();
 
     this._videos = this._parameters['videos'];
@@ -225,6 +234,7 @@ VpaidVideoPlayer.prototype.changeAdF = function() {
                 VpaidVideoPlayer() = new VpaidVideoPlayer();
 
             };
+            this._deleteAdButton(deleteButton);
             this._videoSlot.play();
             this._callEvent('AdResumed');
             break;
@@ -239,6 +249,8 @@ VpaidVideoPlayer.prototype.changeAdF = function() {
  * Changes the ad2.
  */
 VpaidVideoPlayer.prototype.changeAdO = function() {
+    // button versie version 2 for changing the advertisement
+    var deleteButton = document.getElementsByTagName('button');
     this._videoSlot.pause();
 
     this._videos = this._parameters['videos'];
@@ -259,6 +271,7 @@ VpaidVideoPlayer.prototype.changeAdO = function() {
                 VpaidVideoPlayer() = new VpaidVideoPlayer();
 
             };
+            this._deleteAdButton(deleteButton);
             this._videoSlot.play();
             this._callEvent('AdResumed');
             break;
