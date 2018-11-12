@@ -37,16 +37,16 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode,
     //create click-through container
     this._slot.innerHTML += '<div id="vpaid-container" style="position:absolute;width:100%;height:100%;z-index:100;"></div>';
     var vpaidContainer = document.getElementById('vpaid-container');
-    vpaidContainer.addEventListener('click', this._adClickThrough.bind(this), false);
+    // vpaidContainer.addEventListener('click', this._adClickThrough.bind(this), false);
 
     this._callEvent('AdLoaded');
 };
 
-VpaidVideoPlayer.prototype._adClickThrough = function() {
-    this._callEvent('AdClickThru');
-    this._videoSlot.pause();
-    this._callEvent('AdPaused');
-};
+// VpaidVideoPlayer.prototype._adClickThrough = function() {
+//     this._callEvent('AdClickThru');
+//     this._videoSlot.pause();
+//     this._callEvent('AdPaused');
+// };
 
 VpaidVideoPlayer.prototype._updateVideoSlot = function() {
     if (this._videoSlot == null) {
@@ -161,9 +161,18 @@ function preventEventBubbling(button) {
 VpaidVideoPlayer.prototype.stopAd = function() {
     // Calling AdStopped immediately terminates the ad. Setting a timeout allows
     // events to go through
-    var callback = this._callEvent.bind(this);
-    this._callEvent('AdVideoComplete');
-    setTimeout(callback, 75, ['AdStopped']);
+    console.log(this._videoSlot['src']);
+    console.log(this._videos[0]['url']);
+
+    if (this._videoSlot['src'] == this._videos[0]['url']) {
+        this.changeAdO();
+    }
+    
+    
+
+    // var callback = this._callEvent.bind(this);
+    // this._callEvent('AdVideoComplete');
+    // setTimeout(callback, 75, ['AdStopped']);
 };
 
 
