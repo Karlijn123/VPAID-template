@@ -2,8 +2,8 @@
 	<Ad id="1234567">
 		<InLine>
 			<AdSystem>Ad System</AdSystem>
-			<AdTitle>VPAID 2 Linear</AdTitle>
-			<Description>VPAID 2 Linear Video Ad</Description>
+			<AdTitle>Het Interactieve Keuzemenu</AdTitle>
+			<Description>Interactieve keuzemenu video advertentie</Description>
 
 			<Error>http://example.com/error</Error>
 
@@ -12,7 +12,7 @@
 			<Creatives>
 				<Creative sequence="1">
 					<Linear>
-						<Duration>00:00:10</Duration>
+						<Duration>00:00:24</Duration>
 						<AdParameters>
 							<![CDATA[
 							{"videos":[ {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/keuzemenu-intro_1.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_UrbanFamily_Long_Youtube.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_SingleOutdoor_Long_Youtube.mp4","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
@@ -26,7 +26,7 @@
 						<MediaFiles>
 							<MediaFile delivery="progressive" height="1080" width="1080" apiFramework="VPAID" type="application/javascript">
 								<![CDATA[
-								//i321797.hera.fhict.nl/ghg_afstuderen/uploads/vpaid-interactive-1.js
+								//i321797.hera.fhict.nl/ghg_afstuderen/uploads/interactive-keuzemenu.js
 								]]>
 							</MediaFile>
 						</MediaFiles>
