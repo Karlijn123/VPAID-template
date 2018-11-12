@@ -95,8 +95,10 @@ VpaidVideoPlayer.prototype.startAd = function() {
             this._createAdButton('Skip', this.skipAd);
         }
 
-        this._createAdButton('Resume', this.resumeAd);
-        this._createAdButton('Pause', this.pauseAd);
+        // this._createAdButton('Resume', this.resumeAd);
+        // this._createAdButton('Pause', this.pauseAd);
+
+        this._createAdButton('Bekijk langere versie', this.verlengAd);
 
         this._callEvent('AdStarted');
         this._callEvent('AdImpression');
@@ -178,6 +180,12 @@ VpaidVideoPlayer.prototype.resizeAd = function(width, height, viewMode) {
  * Pauses the ad.
  */
 VpaidVideoPlayer.prototype.pauseAd = function() {
+    this._videoSlot.pause();
+    this._callEvent('AdPaused');
+};
+
+VpaidVideoPlayer.prototype.verlengAd = function() {
+    
     this._videoSlot.pause();
     this._callEvent('AdPaused');
 };
