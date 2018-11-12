@@ -8,7 +8,7 @@ var VpaidVideoPlayer = function() {
 };
 
 VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode,
-                                             desiredBitrate, creativeData, environmentVars, mimetype, url) {
+   desiredBitrate, creativeData, environmentVars, mimetype, url) {
 
     this._slot = environmentVars.slot;
     this._videoSlot = environmentVars.videoSlot;
@@ -85,14 +85,14 @@ VpaidVideoPlayer.prototype._timeHandler = function() {
 /**
  * Returns the versions of VPAID ad supported.
  */
-VpaidVideoPlayer.prototype.handshakeVersion = function(version) {
+ VpaidVideoPlayer.prototype.handshakeVersion = function(version) {
     return '2.0';
 };
 
 /**
  * Called by the wrapper to start the ad.
  */
-VpaidVideoPlayer.prototype.startAd = function() {
+ VpaidVideoPlayer.prototype.startAd = function() {
     if (this._attributes['linear']) {
         this._videoSlot.play();
 
@@ -144,7 +144,7 @@ VpaidVideoPlayer.prototype._createAdButton = function(text, eventType) {
 VpaidVideoPlayer.prototype._deleteAdButton = function(deleteButton) {
     // when button is clicked, delete the button elements
     var vpaidContainer = document.getElementById('vpaid-container');
-   for (var i = 0; i < deleteButton.length; i = 0) {
+    for (var i = 0; i < deleteButton.length; i = 0) {
         vpaidContainer.removeChild(deleteButton[i]);
     }
 };
@@ -158,28 +158,29 @@ function preventEventBubbling(button) {
 /**
  * Called by the wrapper to stop the ad.
  */
-VpaidVideoPlayer.prototype.stopAd = function() {
+ VpaidVideoPlayer.prototype.stopAd = function() {
     // Calling AdStopped immediately terminates the ad. Setting a timeout allows
     // events to go through
-    console.log(this._videoSlot['src']);
-    console.log(this._videos[0]['url']);
 
     if (this._videoSlot['src'] == this._videos[0]['url']) {
         this.changeAdO();
     }
+    else{
+        var callback = this._callEvent.bind(this);
+        this._callEvent('AdVideoComplete');
+        setTimeout(callback, 75, ['AdStopped']); 
+    }
     
     
 
-    // var callback = this._callEvent.bind(this);
-    // this._callEvent('AdVideoComplete');
-    // setTimeout(callback, 75, ['AdStopped']);
+    
 };
 
 
 /**
  * @param {number} value The volume in percentage.
  */
-VpaidVideoPlayer.prototype.setAdVolume = function(value) {
+ VpaidVideoPlayer.prototype.setAdVolume = function(value) {
     this._attributes['volume'] = value;
     this._callEvent('AdVolumeChanged');
 };
@@ -188,7 +189,7 @@ VpaidVideoPlayer.prototype.setAdVolume = function(value) {
 /**
  * @return {number} The volume of the ad.
  */
-VpaidVideoPlayer.prototype.getAdVolume = function() {
+ VpaidVideoPlayer.prototype.getAdVolume = function() {
     return this._attributes['volume'];
 };
 
@@ -198,7 +199,7 @@ VpaidVideoPlayer.prototype.getAdVolume = function() {
  * @param {number} height A new height.
  * @param {string} viewMode A new view mode.
  */
-VpaidVideoPlayer.prototype.resizeAd = function(width, height, viewMode) {
+ VpaidVideoPlayer.prototype.resizeAd = function(width, height, viewMode) {
     this._attributes['width'] = width;
     this._attributes['height'] = height;
     this._attributes['viewMode'] = viewMode;
@@ -220,7 +221,7 @@ VpaidVideoPlayer.prototype.resizeAd = function(width, height, viewMode) {
 /**
  * Changes the ad.
  */
-VpaidVideoPlayer.prototype.changeAdF = function() {
+ VpaidVideoPlayer.prototype.changeAdF = function() {
     // button video version 1 for changing the advertisement
     var deleteButton = document.getElementsByTagName('button');
     this._videoSlot.pause();
@@ -257,7 +258,7 @@ VpaidVideoPlayer.prototype.changeAdF = function() {
 /**
  * Changes the ad2.
  */
-VpaidVideoPlayer.prototype.changeAdO = function() {
+ VpaidVideoPlayer.prototype.changeAdO = function() {
     // button versie version 2 for changing the advertisement
     var deleteButton = document.getElementsByTagName('button');
     this._videoSlot.pause();
@@ -295,7 +296,7 @@ VpaidVideoPlayer.prototype.changeAdO = function() {
 /**
  * Pauses the ad.
  */
-VpaidVideoPlayer.prototype.pauseAd = function() {
+ VpaidVideoPlayer.prototype.pauseAd = function() {
     this._videoSlot.pause();
     this._callEvent('AdPaused');
 };
@@ -303,7 +304,7 @@ VpaidVideoPlayer.prototype.pauseAd = function() {
 /**
  * Resumes the ad.
  */
-VpaidVideoPlayer.prototype.resumeAd = function() {
+ VpaidVideoPlayer.prototype.resumeAd = function() {
     this._videoSlot.play();
     this._callEvent('AdResumed');
 };
@@ -311,7 +312,7 @@ VpaidVideoPlayer.prototype.resumeAd = function() {
 /**
  * Expands the ad.
  */
-VpaidVideoPlayer.prototype.expandAd = function() {
+ VpaidVideoPlayer.prototype.expandAd = function() {
     this._attributes['expanded'] = true;
     if (elem.requestFullscreen) {
         elem.requestFullscreen();
@@ -323,7 +324,7 @@ VpaidVideoPlayer.prototype.expandAd = function() {
  * Returns true if the ad is expanded.
  * @return {boolean}
  */
-VpaidVideoPlayer.prototype.getAdExpanded = function() {
+ VpaidVideoPlayer.prototype.getAdExpanded = function() {
     return this._attributes['expanded'];
 };
 
@@ -331,21 +332,21 @@ VpaidVideoPlayer.prototype.getAdExpanded = function() {
  * Returns the skippable state of the ad.
  * @return {boolean}
  */
-VpaidVideoPlayer.prototype.getAdSkippableState = function() {
+ VpaidVideoPlayer.prototype.getAdSkippableState = function() {
     return this._attributes['skippableState'];
 };
 
 /**
  * Collapses the ad.
  */
-VpaidVideoPlayer.prototype.collapseAd = function() {
+ VpaidVideoPlayer.prototype.collapseAd = function() {
     this._attributes['expanded'] = false;
 };
 
 /**
  * Skips the ad.
  */
-VpaidVideoPlayer.prototype.skipAd = function() {
+ VpaidVideoPlayer.prototype.skipAd = function() {
     var skippableState = this._attributes['skippableState'];
     if (skippableState) {
         this._eventsCallbacks['AdSkipped']();
@@ -360,7 +361,7 @@ VpaidVideoPlayer.prototype.skipAd = function() {
  * @param {string} eventName The callback type.
  * @param {Object} aContext The context for the callback.
  */
-VpaidVideoPlayer.prototype.subscribe = function(aCallback, eventName, aContext) {
+ VpaidVideoPlayer.prototype.subscribe = function(aCallback, eventName, aContext) {
     var callBack = aCallback.bind(aContext);
     this._eventsCallbacks[eventName] = callBack;
 };
@@ -370,49 +371,49 @@ VpaidVideoPlayer.prototype.subscribe = function(aCallback, eventName, aContext) 
  *
  * @param {string} eventName The callback type.
  */
-VpaidVideoPlayer.prototype.unsubscribe = function(eventName) {
+ VpaidVideoPlayer.prototype.unsubscribe = function(eventName) {
     this._eventsCallbacks[eventName] = null;
 };
 
 /**
  * @return {number} The ad width.
  */
-VpaidVideoPlayer.prototype.getAdWidth = function() {
+ VpaidVideoPlayer.prototype.getAdWidth = function() {
     return this._attributes['width'];
 };
 
 /**
  * @return {number} The ad height.
  */
-VpaidVideoPlayer.prototype.getAdHeight = function() {
+ VpaidVideoPlayer.prototype.getAdHeight = function() {
     return this._attributes['height'];
 };
 
 /**
  * @return {number} The time remaining in the ad.
  */
-VpaidVideoPlayer.prototype.getAdRemainingTime = function() {
+ VpaidVideoPlayer.prototype.getAdRemainingTime = function() {
     return this._attributes['remainingTime'];
 };
 
 /**
  * @return {number} The duration of the ad.
  */
-VpaidVideoPlayer.prototype.getAdDuration = function() {
+ VpaidVideoPlayer.prototype.getAdDuration = function() {
     return this._attributes['duration'];
 };
 
 /**
  * @return {string} List of companions in vast xml.
  */
-VpaidVideoPlayer.prototype.getAdCompanions = function() {
+ VpaidVideoPlayer.prototype.getAdCompanions = function() {
     return this._attributes['companions'];
 };
 
 /**
  * @return {string} A list of icons.
  */
-VpaidVideoPlayer.prototype.getAdIcons = function() {
+ VpaidVideoPlayer.prototype.getAdIcons = function() {
     return this._attributes['icons'];
 };
 
@@ -423,7 +424,7 @@ VpaidVideoPlayer.prototype.onAdImpression = function() {
 /**
  * @return {boolean} True if the ad is a linear, false for non linear.
  */
-VpaidVideoPlayer.prototype.getAdLinear = function() {
+ VpaidVideoPlayer.prototype.getAdLinear = function() {
     return this._attributes['linear'];
 };
 
@@ -431,7 +432,7 @@ VpaidVideoPlayer.prototype.getAdLinear = function() {
  * Calls an event if there is a callback.
  * @param {string} eventType
  */
-VpaidVideoPlayer.prototype._callEvent = function(eventType) {
+ VpaidVideoPlayer.prototype._callEvent = function(eventType) {
     if (eventType in this._eventsCallbacks) {
         this._eventsCallbacks[eventType]();
     }
@@ -440,6 +441,6 @@ VpaidVideoPlayer.prototype._callEvent = function(eventType) {
 /**
  * Main function called by wrapper to get the VPAID ad.
  */
-var getVPAIDAd = function() {
+ var getVPAIDAd = function() {
     return new VpaidVideoPlayer();
 };
