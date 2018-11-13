@@ -108,9 +108,30 @@ VpaidVideoPlayer.prototype.startAd = function() {
 VpaidVideoPlayer.prototype._createAdButton = function(text, eventType) {
     var adButton = document.createElement('button');
     var buttonText = document.createTextNode(text);
+
+    console.log(quartileEvent);
+
+    adButton.style.width = "30vw";
+    adButton.style.height = "10vh";
+    adButton.style.opacity = "0.5";
+    adButton.style.backgroundColor = "white";
+    adButton.style.border = "solid 1px black";
+    adButton.style.float = "right";
+    adButton.style.margin = "70vh 0 0 0";
+
+    function adhover(button) {
+        button.onmouseover = function(e){
+            button.style.opacity = "0.8";
+        }
+        button.onmouseout = function(e){
+            button.style.opacity = "0.5";
+        }
+    }
+
     adButton.appendChild(buttonText);
     adButton.addEventListener('click', eventType.bind(this), false);
     preventEventBubbling(adButton);
+    adhover(adButton);
     var vpaidContainer = document.getElementById('vpaid-container');
     vpaidContainer.appendChild(adButton);
 
