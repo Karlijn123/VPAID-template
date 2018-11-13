@@ -117,6 +117,14 @@ VpaidVideoPlayer.prototype._createAdButton = function(text, eventType) {
 
 };
 
+VpaidVideoPlayer.prototype._deleteAdButton = function(deleteButton) {
+    // when button is clicked, delete the button elements
+    var vpaidContainer = document.getElementById('vpaid-container');
+    for (var i = 0; i < deleteButton.length; i = 0) {
+        vpaidContainer.removeChild(deleteButton[i]);
+    }
+};
+
 function preventEventBubbling(button) {
     button.onclick = function(e) {
         e.stopPropagation();
@@ -184,10 +192,39 @@ VpaidVideoPlayer.prototype.pauseAd = function() {
     this._callEvent('AdPaused');
 };
 
+/**
+ * Verleng the ad.
+ */
 VpaidVideoPlayer.prototype.verlengAd = function() {
-    
+    var deleteButton = document.getElementsByTagName('button');
     this._videoSlot.pause();
-    this._callEvent('AdPaused');
+
+    this._videos = this._parameters['videos'];
+    this._attributes = this._parameters['attributes'];
+    var array = this._parameters['videos'];
+
+    var foundSource = false;
+    var videos = this._parameters.videos || [];
+    for (var i = 0; i < videos.length; i++) {
+        // Choose the first video with a supported mimetype.
+        if (this._videoSlot.canPlayType(videos[i].mimetype) != '') {
+            this._videoSlot.setAttribute('src', array[1]['url']);
+            // this._videoSlot.setAttribute('src', videos[i].url);
+            foundSource = true;
+            var getVPAIDAd = function() {
+                VpaidVideoPlayer() = new VpaidVideoPlayer();
+
+            };
+            this._deleteAdButton(deleteButton);
+            this._videoSlot.play();
+            this._callEvent('AdResumed');
+            break;
+        }
+    }
+    if (!foundSource) {
+        // Unable to find a source video.
+        this._callEvent('AdError');
+    }
 };
 
 /**
