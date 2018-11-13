@@ -12,7 +12,7 @@
 			<Creatives>
 				<Creative sequence="1">
 					<Linear>
-						<Duration>00:00:10</Duration>
+						<Duration>00:00:15</Duration>
 						<AdParameters>
 							<![CDATA[
 							{"videos":[ {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_DynamischSport_Long.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_DynamischSport_Short.mp4","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
