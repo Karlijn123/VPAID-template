@@ -95,10 +95,11 @@ VpaidVideoPlayer.prototype.startAd = function() {
             this._createAdButton('Skip', this.skipAd);
         }
 
-        // this._createAdButton('Resume', this.resumeAd);
-        // this._createAdButton('Pause', this.pauseAd);
-
+        // // this._createAdButton('Resume', this.resumeAd);
+        // // this._createAdButton('Pause', this.pauseAd);
+       
         this._createAdButton('Bekijk langere versie', this.verlengAd);
+        
 
         this._callEvent('AdStarted');
         this._callEvent('AdImpression');
@@ -108,8 +109,6 @@ VpaidVideoPlayer.prototype.startAd = function() {
 VpaidVideoPlayer.prototype._createAdButton = function(text, eventType) {
     var adButton = document.createElement('button');
     var buttonText = document.createTextNode(text);
-
-    console.log(quartileEvent);
 
     adButton.style.width = "30vw";
     adButton.style.height = "10vh";
