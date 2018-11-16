@@ -169,11 +169,7 @@ function preventEventBubbling(button) {
         var callback = this._callEvent.bind(this);
         this._callEvent('AdVideoComplete');
         setTimeout(callback, 75, ['AdStopped']); 
-    }
-    
-    
-
-    
+    } 
 };
 
 
