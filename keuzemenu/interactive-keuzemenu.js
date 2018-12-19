@@ -42,11 +42,6 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode,
     this._callEvent('AdLoaded');
 };
 
-// VpaidVideoPlayer.prototype._adClickThrough = function() {
-//     this._callEvent('AdClickThru');
-//     this._videoSlot.pause();
-//     this._callEvent('AdPaused');
-// };
 
 VpaidVideoPlayer.prototype._updateVideoSlot = function() {
     if (this._videoSlot == null) {
@@ -104,9 +99,12 @@ VpaidVideoPlayer.prototype._timeHandler = function() {
         // this._createAdButton('Resume', this.resumeAd);
         // this._createAdButton('Pause', this.pauseAd);
 
+// 1.   Elke interactiviteit begint met een knop die moet worden ingedrukt. 
+//      Maak hier 2 knoppen aan die de keuzes aangeven.
         this._createAdButton('Outdoor', this.changeAdO)
         this._createAdButton('Family', this.changeAdF);
         
+
 
         this._callEvent('AdStarted');
         this._callEvent('AdImpression');
@@ -116,7 +114,7 @@ VpaidVideoPlayer.prototype._timeHandler = function() {
 VpaidVideoPlayer.prototype._createAdButton = function(text, eventType) {
     var adButton = document.createElement('button');
     var buttonText = document.createTextNode(text);
-
+// 2.   Stijl de buttons naar wens door middel van Javascript style toe te voegen. Bij de 'adhover' functie kan style worden aangegeven bij een hover.
     adButton.style.width = "50vw";
     adButton.style.height = "100vh";
     adButton.style.opacity = "0";
@@ -232,6 +230,7 @@ function preventEventBubbling(button) {
     var videos = this._parameters.videos || [];
     for (var i = 0; i < videos.length; i++) {
         // Choose the first video with a supported mimetype.
+// 3.   Wanneer op de eerste/ linkse knop wordt gedrukt, zal de video die als tweede is aangegeven in de XML file worden afgespeeld.
         if (this._videoSlot.canPlayType(videos[i].mimetype) != '') {
             this._videoSlot.setAttribute('src', array[1]['url']);
             // this._videoSlot.setAttribute('src', videos[i].url);
@@ -269,6 +268,7 @@ function preventEventBubbling(button) {
     var videos = this._parameters.videos || [];
     for (var i = 0; i < videos.length; i++) {
         // Choose the first video with a supported mimetype.
+// 4.   Wanneer op de eerste/ linkse knop wordt gedrukt, zal de video die als tweede is aangegeven in de XML file worden afgespeeld.
         if (this._videoSlot.canPlayType(videos[i].mimetype) != '') {
             this._videoSlot.setAttribute('src', array[2]['url']);
             // this._videoSlot.setAttribute('src', videos[i].url);
