@@ -1,0 +1,44 @@
+<VAST version="3.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<Ad id="1234567">
+		<InLine>
+			<AdSystem>Ad System</AdSystem>
+			<!-- 1. Vul hier de naam en de beschrijving van de video in -->
+			<AdTitle> <!-- titel --> </AdTitle>
+			<Description> <!-- beschrijving --> </Description>
+
+			<Error>https://example.com/error</Error>
+
+			<Impression id="Impression-ID"></Impression>
+			
+			<Creatives>
+				<Creative sequence="1">
+					<Linear>
+						<!-- 2. Hoe lang duurt de totale video? (pak hier de langst mogelijke optie) -->
+						<Duration> <!-- 00:00:00 --> </Duration>
+						<!-- 3. Voor elke video die erin komt zeg je een beveiligde url met type in -->
+						<AdParameters>
+							<![CDATA[
+							{"videos":[ {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}, {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}, {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
+							]]>
+						</AdParameters>
+						<VideoClicks>
+							<!-- 4. Mocht er iets mis gaan, waar moet de video naar doorlinken? -->
+							<ClickThrough id="GDFP">
+								<![CDATA[ <!-- https clickthrough url --> ]]>
+							</ClickThrough>
+						</VideoClicks>
+						<MediaFiles>
+							<!-- 5. Wat zijn de afmetingen van de video? -->
+							<MediaFile delivery="progressive" height="1080" width="1920" apiFramework="VPAID" type="application/javascript">
+								<!-- 6. De link naar de externe VPAID Javascript file. -->
+                <![CDATA[
+								<!-- Javascript file url -https -->
+								]]>
+							</MediaFile>
+						</MediaFiles>
+					</Linear>
+				</Creative>
+			</Creatives>
+		</InLine>
+	</Ad>
+</VAST>
