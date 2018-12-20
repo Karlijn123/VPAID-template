@@ -31,7 +31,7 @@
 							<!-- 5. Wat zijn de afmetingen van de video? -->
 							<MediaFile delivery="progressive" height="1080" width="1920" apiFramework="VPAID" type="application/javascript">
 								<!-- 6. De link naar de externe VPAID Javascript file. -->
-                <![CDATA[
+                						<![CDATA[
 								<!-- Javascript file url -https -->
 								]]>
 							</MediaFile>
