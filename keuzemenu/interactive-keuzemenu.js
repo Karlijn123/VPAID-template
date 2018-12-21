@@ -159,6 +159,7 @@ function preventEventBubbling(button) {
  VpaidVideoPlayer.prototype.stopAd = function() {
     // Calling AdStopped immediately terminates the ad. Setting a timeout allows
     // events to go through
+    
 // 5. Check of de defaultvideo goed staat. Wanneer de video eerste video af is gespeeld zonder interactie wordt de default video afgespeeld. Door de functie 'ChangeAdO' wordt aangeroepen, wordt video 1 (in XML file de tweede) afgespeeld. Deze kan je veranderen naar 'ChangeADF' om de tweede (in xml file derde) video default te maken.
     if (this._videoSlot['src'] == this._videos[0]['url']) {
         this.changeAdO();
