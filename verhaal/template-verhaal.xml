@@ -3,35 +3,36 @@
 		<InLine>
 			<AdSystem>Ad System</AdSystem>
 			<!-- 1. Vul hier de naam en de beschrijving van de video in -->
-			<AdTitle>Het Interactieve Keuzemenu</AdTitle>
-			<Description>Interactieve keuzemenu video advertentie</Description>
+			<AdTitle> <!-- titel --> </AdTitle>
+			<Description> <!-- beschrijving --> </Description>
 
-			<Error>http://example.com/error</Error>
+			<Error>https://example.com/error</Error>
 
 			<Impression id="Impression-ID"></Impression>
 			
 			<Creatives>
 				<Creative sequence="1">
 					<Linear>
-						<!-- 2. Hoe lang duurt de video? -->
-						<Duration>00:00:24</Duration>
+						<!-- 2. Hoe lang duurt de totale video? (pak hier de langst mogelijke optie) -->
+						<Duration> <!-- 00:00:00 --> </Duration>
 						<!-- 3. Voor elke video die erin komt zeg je een beveiligde url met type in -->
 						<AdParameters>
 							<![CDATA[
-							{"videos":[ {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/keuzemenu-intro3.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_SingleOutdoor_Long_Youtube.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_UrbanFamily_Long_Youtube.mp4","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
+							{"videos":[ {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}, {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}, {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
 							]]>
 						</AdParameters>
 						<VideoClicks>
 							<!-- 4. Mocht er iets mis gaan, waar moet de video naar doorlinken? -->
 							<ClickThrough id="GDFP">
-								<![CDATA[ http://www.google.com ]]>
+								<![CDATA[ <!-- https clickthrough url --> ]]>
 							</ClickThrough>
 						</VideoClicks>
 						<MediaFiles>
-							<!-- 5. De link naar de externe VPAID Javascript file -->
+							<!-- 5. Wat zijn de afmetingen van de video? -->
 							<MediaFile delivery="progressive" height="1080" width="1920" apiFramework="VPAID" type="application/javascript">
-								<![CDATA[
-								//i321797.hera.fhict.nl/ghg_afstuderen/uploads/voorbeeld-keuzemenu.js
+								<!-- 6. De link naar de externe VPAID Javascript file. -->
+                						<![CDATA[
+								<!-- Javascript file url -https -->
 								]]>
 							</MediaFile>
 						</MediaFiles>
