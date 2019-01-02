@@ -1,3 +1,3 @@
 # VPAID-template
-a repository for VPAID interactive video advertising
+a repository for VPAID Interactive Video Advertising
 
