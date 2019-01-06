@@ -14,7 +14,6 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode, desiredBit
 
     // Parse the incoming parameters
     this._parameters = JSON.parse(creativeData['AdParameters']);
-
     this._attributes = this._parameters['attributes'];
 
     this._attributes['width'] = width;
@@ -32,11 +31,17 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode, desiredBit
     this._slot.innerHTML += '<div id="vpaid-container" style="position:absolute;width:20%;height:10%;z-index:100;background-color:pink;"></div>';
     var vpaidContainer = document.getElementById('vpaid-container');
     vpaidContainer.addEventListener('click', this._adClickThrough.bind(this), false);
+    // vpaidContainer.addEventListener('click', function(){
+    //     window.location.href = 'https://www.google.com';
+    // });
+    // vpaidContainer.addEventListener('click', this.location.href = "https://www.google.com");
 
     this._callEvent('AdLoaded');
 };
 
 VpaidVideoPlayer.prototype._adClickThrough = function() {
+    window.open('https://www.volvocars.com/nl','_blank');
+    // document.location.href = "https://volvocars.com/nl";
     this._callEvent('AdClickThru');
     this._videoSlot.pause();
     this._callEvent('AdPaused');
