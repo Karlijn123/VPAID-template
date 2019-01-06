@@ -29,7 +29,7 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode, desiredBit
     }
 
     //create click-through container
-    this._slot.innerHTML += '<div id="vpaid-container" style="position:absolute;width:100%;height:100%;z-index:100;"></div>';
+    this._slot.innerHTML += '<div id="vpaid-container" style="position:absolute;width:20%;height:10%;z-index:100;background-color:pink;"></div>';
     var vpaidContainer = document.getElementById('vpaid-container');
     vpaidContainer.addEventListener('click', this._adClickThrough.bind(this), false);
 
@@ -95,8 +95,9 @@ VpaidVideoPlayer.prototype.startAd = function() {
             this._createAdButton('Skip', this.skipAd);
         }
 
-        this._createAdButton('Resume', this.resumeAd);
-        this._createAdButton('Pause', this.pauseAd);
+        // this._createAdButton('Resume', this.resumeAd);
+        // this._createAdButton('Pause', this.pauseAd);
+        this._createAdButton('Ga naar alle occasions', this._adClickThrough);
 
         this._callEvent('AdStarted');
         this._callEvent('AdImpression');
@@ -235,6 +236,15 @@ VpaidVideoPlayer.prototype.skipAd = function() {
         setTimeout(callback, 75, ['AdStopped']);
     }
 };
+
+
+/**
+ * Pauses the ad.
+ */
+VpaidVideoPlayer.prototype.ctaAd = function() {
+
+};
+
 
 /**
  * Registers a callback for an event.

@@ -15,18 +15,18 @@
 						<Duration>00:00:15</Duration>
 						<AdParameters>
 							<![CDATA[
-							{"videos":[ {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_DynamischSport_Long.mp4","mimetype":"video/mp4"}, {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_DynamischSport_Short.mp4","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
+							{"videos":[ {"url":"//i321797.hera.fhict.nl/ghg_afstuderen/uploads/VOLVO_V60_DynamischSport_Long.mp4","mimetype":"video/mp4"} ], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
 							]]>
 						</AdParameters>
 						<VideoClicks>
 							<ClickThrough id="GDFP">
-								<![CDATA[ http://www.google.com ]]>
+								<![CDATA[http://www.google.com]]>
 							</ClickThrough>
 						</VideoClicks>
 						<MediaFiles>
 							<MediaFile delivery="progressive" height="1080" width="1080" apiFramework="VPAID" type="application/javascript">
 								<![CDATA[
-								//i321797.hera.fhict.nl/ghg_afstuderen/uploads/interactive-verlenger.js
+								//i321797.hera.fhict.nl/ghg_afstuderen/uploads/call-to-action.js
 								]]>
 							</MediaFile>
 						</MediaFiles>
