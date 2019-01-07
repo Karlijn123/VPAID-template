@@ -2,7 +2,7 @@
 	<Ad id="1234567">
 		<InLine>
 			<AdSystem>Ad System</AdSystem>
-			<!-- 1. Vul hier de naam en de beschrijving van de video in -->
+			<!-- 1. Geef de video een eigen naam en beschrijving. -->
 			<AdTitle> <!-- titel --> </AdTitle>
 			<Description> <!-- beschrijving --> </Description>
 
@@ -13,16 +13,16 @@
 			<Creatives>
 				<Creative sequence="1">
 					<Linear>
-						<!-- 2. Hoe lang duurt de totale video? (pak hier de langst mogelijke optie) -->
+						<!-- 2. Wat is de totale duur van de video? -->
 						<Duration> <!-- 00:00:00 --> </Duration>
-						<!-- 3. Voor elke video die erin komt zeg je een beveiligde url met type in -->
+						<!-- 3. Welke video is de basis van de call-to-action? Vul de HTTPS URL in. -->
 						<AdParameters>
 							<![CDATA[
-							{"videos":[ {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}, {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}, {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
+							{"videos":[ {"url":"<!-- video url -https: -->","mimetype":"video/mp4"}], "attributes": { "desiredBitrate" : 256, "duration" : 15, "expanded" : false, "height" : 0, "icons" : "", "linear" : true, "remainingTime" : 30, "skippableState" : false, "viewMode" : "normal", "width" : 0, "volume" : 1.0 } }
 							]]>
 						</AdParameters>
 						<VideoClicks>
-							<!-- 4. Mocht er iets mis gaan, waar moet de video naar doorlinken? -->
+							<!-- 4. Waar moet de video naar doorlinken bij de call-to-action? -->
 							<ClickThrough id="GDFP">
 								<![CDATA[ <!-- https clickthrough url --> ]]>
 							</ClickThrough>
@@ -30,7 +30,7 @@
 						<MediaFiles>
 							<!-- 5. Wat zijn de afmetingen van de video? -->
 							<MediaFile delivery="progressive" height="1080" width="1920" apiFramework="VPAID" type="application/javascript">
-								<!-- 6. De link naar de externe VPAID Javascript file. -->
+								<!-- 6. Vul hier de link naar de externe VPAID Javascript file in. -->
                 						<![CDATA[
 								<!-- Javascript file url -https -->
 								]]>

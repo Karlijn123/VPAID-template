@@ -28,13 +28,15 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode, desiredBit
     }
 
     //create click-through container
-    this._slot.innerHTML += '<div id="vpaid-container" style="position:absolute;width:20%;height:10%;z-index:100;top:70vh;left:80vw;"></div>';
+// 1. Verwerk de buttonstyle in de vpaid-container div
+    this._slot.innerHTML += '<div id="vpaid-container" style="position: absolute;width:<!-- width data -->;height:<!-- height data -->;z-index:100;top:<!-- margin top data -->;left:<!-- margin left data -->;"></div>';
     var vpaidContainer = document.getElementById('vpaid-container');
     vpaidContainer.addEventListener('click', this._adClickThrough.bind(this), false);
     this._callEvent('AdLoaded');
 };
 
 VpaidVideoPlayer.prototype._adClickThrough = function() {
+// 2. Naar welke URL moet de video doorlinken? 
     window.open('https://www.volvocars.com/nl','_blank');
     this._callEvent('AdClickThru');
     this._videoSlot.pause();
