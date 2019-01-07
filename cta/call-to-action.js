@@ -28,7 +28,7 @@ VpaidVideoPlayer.prototype.initAd = function(width, height, viewMode, desiredBit
     }
 
     //create click-through container
-    this._slot.innerHTML += '<div id="vpaid-container" style="position:absolute;width:20%;height:10%;z-index:100;background-color:pink;"></div>';
+    this._slot.innerHTML += '<div id="vpaid-container" style="position:absolute;width:20%;height:10%;z-index:100;top:70vh;left:80vw;"></div>';
     var vpaidContainer = document.getElementById('vpaid-container');
     vpaidContainer.addEventListener('click', this._adClickThrough.bind(this), false);
     this._callEvent('AdLoaded');
