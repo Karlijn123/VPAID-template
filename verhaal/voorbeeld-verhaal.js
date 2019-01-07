@@ -130,9 +130,14 @@ function preventEventBubbling(button) {
 VpaidVideoPlayer.prototype.stopAd = function() {
     // Calling AdStopped immediately terminates the ad. Setting a timeout allows
     // events to go through
-    var callback = this._callEvent.bind(this);
-    this._callEvent('AdVideoComplete');
-    setTimeout(callback, 75, ['AdStopped']);
+    if (this._videoSlot['src'] == this._videos[0]['url']) {
+        this.changeAdO();
+    }
+    else{
+        var callback = this._callEvent.bind(this);
+        this._callEvent('AdVideoComplete');
+        setTimeout(callback, 75, ['AdStopped']); 
+    }
 };
 
 

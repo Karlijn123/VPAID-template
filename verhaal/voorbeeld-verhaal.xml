@@ -26,7 +26,7 @@
 						<MediaFiles>
 							<MediaFile delivery="progressive" height="1080" width="1920" apiFramework="VPAID" type="application/javascript">
 								<![CDATA[
-								//i321797.hera.fhict.nl/ghg_afstuderen/uploads/interactive-verhaal.js
+								//i321797.hera.fhict.nl/ghg_afstuderen/uploads/voorbeeld-verhaal.js
 								]]>
 							</MediaFile>
 						</MediaFiles>
