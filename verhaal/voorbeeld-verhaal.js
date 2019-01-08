@@ -77,8 +77,6 @@ VpaidVideoPlayer.prototype._timeHandler = function() {
             }
         }
         console.log(quartile);
-        
-
         this._quartileEvent = quartile;
         this._callEvent(this._quartiles[quartile-1]);
     }
