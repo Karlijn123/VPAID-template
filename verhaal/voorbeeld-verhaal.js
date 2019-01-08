@@ -72,8 +72,8 @@ VpaidVideoPlayer.prototype._timeHandler = function() {
         if (this._videoSlot['src'] == this._videos[0]['url']) {
             if (this._quartileEvent == 1){
                 this._videoSlot.pause();
-                this._createAdButton('relaxed alleen', this.optie1);
-                this._createAdButton('met mijn gezin', this.optie2);
+                this._createAdButton('ik rijd graag relaxed alleen', this.optie1);
+                this._createAdButton('ik rijd graag met mijn gezin', this.optie2);
             }
         }
         console.log(quartile);
